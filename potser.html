@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexScholar – Launch Event Poster</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --purple: #6d28d9;
+            --violet: #7c3aed;
+            --pink: #a855f7;
+            --lpink: #c084fc;
+            --cyan: #22d3ee;
+            --white: #fff;
+            --off: #e9d5ff;
+            --muted: #a78bca;
+            --card-bg: rgba(109, 40, 217, .13);
+            --card-border: rgba(168, 85, 247, .30);
+            --font-d: "Trebuchet MS", "Arial Black", Impact, sans-serif;
+            --font-b: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+            background: #04000d;
+            margin: 0;
+            padding: 16px 0 32px;
+        }
+
+        .poster {
+            width: min(800px, 100vw);
+            margin: 0 auto;
+            background: radial-gradient(ellipse at 30% 0%, #1a0540 0%, #0a0118 55%, #000010 100%);
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-b);
+            color: #fff;
+        }
+
+        .stars {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image:
+                radial-gradient(1px 1px at 8% 12%, rgba(255, 255, 255, .8) 0%, transparent 100%),
+                radial-gradient(1px 1px at 22% 38%, rgba(255, 255, 255, .5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 45% 6%, rgba(255, 255, 255, .7) 0%, transparent 100%),
+                radial-gradient(1px 1px at 67% 22%, rgba(255, 255, 255, .4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 83% 10%, rgba(255, 255, 255, .8) 0%, transparent 100%),
+                radial-gradient(1px 1px at 91% 55%, rgba(255, 255, 255, .5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 35% 70%, rgba(255, 255, 255, .4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 14% 80%, rgba(255, 255, 255, .6) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 50% 50%, rgba(200, 150, 255, .9) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 75% 72%, rgba(150, 200, 255, .7) 0%, transparent 100%),
+                radial-gradient(2px 2px at 5% 45%, rgba(168, 85, 247, .7) 0%, transparent 100%),
+                radial-gradient(2px 2px at 94% 35%, rgba(34, 211, 238, .6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 30% 25%, rgba(255, 255, 255, .6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 78% 48%, rgba(255, 255, 255, .4) 0%, transparent 100%);
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 400px;
+            background: #5b21b6;
+            top: -120px;
+            left: -100px;
+            opacity: .40;
+        }
+
+        .blob-2 {
+            width: 350px;
+            height: 350px;
+            background: #7c3aed;
+            bottom: 0;
+            right: -80px;
+            opacity: .30;
+        }
+
+        .blob-3 {
+            width: 250px;
+            height: 250px;
+            background: #22d3ee;
+            top: 40%;
+            left: 20%;
+            opacity: .08;
+        }
+
+        .blob-4 {
+            width: 200px;
+            height: 200px;
+            background: #a855f7;
+            top: 60%;
+            right: 25%;
+            opacity: .12;
+        }
+
+        .glow-ring {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 220px;
+            background: radial-gradient(ellipse, rgba(139, 92, 246, .35) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .poster>*:not(.blob):not(.stars):not(.glow-ring) {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* HEADER */
+        .header {
+            padding: 32px 36px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .logo-hex {
+            width: 52px;
+            height: 52px;
+            flex-shrink: 0;
+        }
+
+        .brand-word {
+            font-family: var(--font-d);
+            font-size: clamp(38px, 8vw, 62px);
+            font-weight: 900;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #c084fc 0%, #fff 40%, #67e8f9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 18px rgba(168, 85, 247, .6));
+        }
+
+        .eyebrow {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 10px;
+            letter-spacing: .20em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .h-rule {
+            margin: 18px 36px 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, .6) 30%, rgba(34, 211, 238, .5) 70%, transparent);
+        }
+
+        .hero-summary {
+            text-align: center;
+            padding: 14px 48px 0;
+            font-size: clamp(12px, 2vw, 14px);
+            color: var(--off);
+            line-height: 1.70;
+            opacity: .80;
+        }
+
+        /* ICON ROW */
+        .icon-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(12px, 3vw, 30px);
+            padding: 22px 36px 0;
+            flex-wrap: wrap;
+        }
+
+        .icon-orb {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 7px;
+            cursor: default;
+            transition: transform .25s ease;
+        }
+
+        .icon-orb:hover {
+            transform: translateY(-6px);
+        }
+
+        .orb-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: box-shadow .25s;
+        }
+
+        .orb-circle::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 50%;
+            background: conic-gradient(var(--cyan), var(--violet), var(--pink), var(--cyan));
+            z-index: -1;
+            opacity: .7;
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .orb-circle::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at 30% 30%, #1e0a3c, #0d0020);
+            z-index: -1;
+        }
+
+        .orb-circle:hover {
+            box-shadow: 0 0 22px rgba(168, 85, 247, .55);
+        }
+
+        .orb-circle.slow::before {
+            animation-duration: 7s;
+        }
+
+        .orb-circle.rev::before {
+            animation: spin 5s linear infinite reverse;
+        }
+
+        .orb-circle img {
+            position: relative;
+            z-index: 1;
+        }
+
+        .orb-label {
+            font-size: 9.5px;
+            letter-spacing: .05em;
+            color: var(--muted);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* FEATURES */
+        .feat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 13px;
+            padding: 22px 36px 0;
+        }
+
+        .feat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 17px 15px 15px;
+            position: relative;
+            overflow: hidden;
+            transition: transform .22s, box-shadow .22s;
+            cursor: default;
+        }
+
+        .feat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(109, 40, 217, .35);
+        }
+
+        .feat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--purple), var(--cyan));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .feat-card::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 6px var(--cyan);
+        }
+
+        .feat-icon-wrap {
+            margin-bottom: 9px;
+        }
+
+        .feat-label {
+            font-size: 8px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .feat-title {
+            font-family: var(--font-d);
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 7px;
+            line-height: 1.3;
+        }
+
+        .feat-desc {
+            font-size: 10.5px;
+            color: var(--muted);
+            line-height: 1.57;
+        }
+
+        /* WIDE CARD */
+        .wide-card {
+            margin: 13px 36px 0;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 17px 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: transform .22s, box-shadow .22s;
+            cursor: default;
+        }
+
+        .wide-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(109, 40, 217, .30);
+        }
+
+        .wide-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+        }
+
+        .wide-card::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--pink);
+            box-shadow: 0 0 6px var(--pink);
+        }
+
+        .wide-icon {
+            flex-shrink: 0;
+        }
+
+        .wide-label {
+            font-size: 8px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .wide-title {
+            font-family: var(--font-d);
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .wide-desc {
+            font-size: 10.5px;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        /* EVENT CARD */
+        .event-card {
+            margin: 13px 36px 0;
+            background: linear-gradient(135deg, rgba(109, 40, 217, .25), rgba(6, 182, 212, .12));
+            border: 1px solid rgba(168, 85, 247, .35);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .event-top {
+            height: 2px;
+            background: linear-gradient(90deg, var(--violet), var(--cyan), var(--pink));
+        }
+
+        .event-inner {
+            padding: 18px 22px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .ev {
+            text-align: center;
+        }
+
+        .ev-lbl {
+            font-size: 8.5px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .ev-val {
+            font-family: var(--font-d);
+            font-size: clamp(12px, 2vw, 15px);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.25;
+        }
+
+        .ev-sub {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        /* BOTTOM */
+        .bottom-row {
+            margin: 14px 36px 0;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .event-badge {
+            flex-shrink: 0;
+            width: 118px;
+            background: linear-gradient(145deg, rgba(109, 40, 217, .45), rgba(6, 182, 212, .2));
+            border: 1px solid rgba(168, 85, 247, .5);
+            border-radius: 16px;
+            padding: 14px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-align: center;
+            box-shadow: 0 0 0 1px rgba(168, 85, 247, .3), 0 0 28px rgba(109, 40, 217, .3), 0 0 50px rgba(109, 40, 217, .15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--violet), var(--cyan), var(--pink));
+        }
+
+        .badge-star {
+            animation: pulse-icon 2.5s ease-in-out infinite;
+            display: flex;
+        }
+
+        @keyframes pulse-icon {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        .badge-event-word {
+            font-family: var(--font-d);
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #c084fc, #67e8f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .badge-date-mini {
+            font-size: 9px;
+            color: var(--muted);
+            letter-spacing: .06em;
+            line-height: 1.5;
+        }
+
+        .badge-dot-row {
+            display: flex;
+            gap: 4px;
+            margin-top: 2px;
+        }
+
+        .badge-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+        }
+
+        .bd1 {
+            background: var(--pink);
+        }
+
+        .bd2 {
+            background: var(--cyan);
+        }
+
+        .bd3 {
+            background: var(--lpink);
+        }
+
+        .cta-h {
+            font-family: var(--font-d);
+            font-size: clamp(16px, 3.2vw, 23px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 7px;
+            background: linear-gradient(90deg, #fff 40%, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-p {
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.60;
+            max-width: 370px;
+        }
+
+        .scan-tag {
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(168, 85, 247, .15);
+            border: 1px solid rgba(168, 85, 247, .35);
+            border-radius: 999px;
+            padding: 5px 14px;
+            font-size: 10.5px;
+            color: var(--lpink);
+            font-weight: 700;
+            letter-spacing: .05em;
+        }
+
+        .scan-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 6px var(--cyan);
+            flex-shrink: 0;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 16px;
+            padding: 13px 36px 28px;
+            border-top: 1px solid rgba(168, 85, 247, .15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .footer-l {
+            font-size: 10.5px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .footer-l span {
+            color: var(--lpink);
+        }
+
+        .sep {
+            color: rgba(255, 255, 255, .15);
+            margin: 0 5px;
+        }
+
+        .footer-r {
+            font-size: 9.5px;
+            color: var(--muted);
+            text-align: right;
+            line-height: 1.65;
+            opacity: .6;
+        }
+
+        @media(max-width:520px) {
+            .header {
+                padding: 20px 18px 0;
+            }
+
+            .h-rule {
+                margin: 14px 18px 0;
+            }
+
+            .hero-summary {
+                padding: 12px 18px 0;
+            }
+
+            .icon-row {
+                padding: 18px 18px 0;
+                gap: 10px;
+            }
+
+            .orb-circle {
+                width: 48px;
+                height: 48px;
+            }
+
+            .feat-grid {
+                grid-template-columns: 1fr;
+                padding: 16px 18px 0;
+                gap: 10px;
+            }
+
+            .feat-card {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 14px 13px;
+            }
+
+            .feat-icon-wrap {
+                margin: 0;
+                flex-shrink: 0;
+            }
+
+            .wide-card {
+                margin: 10px 18px 0;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .event-card {
+                margin: 10px 18px 0;
+            }
+
+            .event-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .ev {
+                text-align: left;
+                border-left: 2px solid rgba(168, 85, 247, .4);
+                padding-left: 10px;
+            }
+
+            .ev-lbl {
+                justify-content: flex-start;
+            }
+
+            .bottom-row {
+                margin: 12px 18px 0;
+                gap: 14px;
+            }
+
+            .event-badge {
+                width: 86px;
+                padding: 10px 8px;
+            }
+
+            .footer {
+                padding: 12px 18px 22px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-r {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="poster">
+        <div class="stars"></div>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+        <div class="glow-ring"></div>
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo-hex">
+                <svg width="52" height="60" viewBox="0 0 52 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26 2L49 15.5V42.5L26 56L3 42.5V15.5L26 2Z" fill="url(#hg)" stroke="url(#hs)"
+                        stroke-width="1.5" />
+                    <text x="26" y="38" text-anchor="middle" font-family="Trebuchet MS,Arial Black,sans-serif"
+                        font-size="24" font-weight="900" fill="white">N</text>
+                    <defs>
+                        <linearGradient id="hg" x1="0" y1="0" x2="52" y2="60" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#7c3aed" stop-opacity=".6" />
+                            <stop offset="100%" stop-color="#06b6d4" stop-opacity=".3" />
+                        </linearGradient>
+                        <linearGradient id="hs" x1="0" y1="0" x2="52" y2="60" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#a855f7" />
+                            <stop offset="100%" stop-color="#22d3ee" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="brand-word">NexScholar</div>
+        </div>
+
+        <div class="eyebrow">The Smart Ecosystem for Research Excellence</div>
+        <div class="h-rule"></div>
+        <p class="hero-summary">Malaysia's AI-powered academic research platform connecting students, academicians &amp;
+            industry through intelligent matchmaking, funding discovery, and real-time analytics.</p>
+
+        <!-- ICON ROW -->
+        <div class="icon-row">
+            <div class="icon-orb">
+                <div class="orb-circle"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAwFBMVEVHcEw5QUY5QUYxNz05QUY5QUY5QUY2PkM3P0Q5QUYxNz05QUY2PUM2PUM5QUY3P0QxNz0xNz392Ig2PUIxNz0xNz05QUb8q0D92Ij92Ij8q0D8q0D8q0D92IgxNz38q0D8q0D8q0A5QUb8q0AxNz392IgyOD42PkM0O0A4P0RFSEazg0KCaUReVUX91YTwzoPwpED9xWhLS0Y+Pz7DjELXl0H8sUmxnGxXVUuScUJkVD79zXbknkCxgUF9Yz69ml+eqWhFAAAAInRSTlMAv2Dvz5/fMBDv34+vIHCAz5/vQGBwUGCfIN9w7zCPIBDPj6UJZQAAAnRJREFUeF69lYly2jAQhoVtLBswJoGE3G0l+eI+cvZ8/7cqFpQFB60sMdPvAb6Z3X/1i/w/om4cd6PzPTGTxGdqgg7b0QnO8VCf7fGpvccJ2QGhY+tpsgpNu/V47BOexaL6ITtB2Df1dJmCrmXqgM0dUI8heNQ8dcDmDtpMS7tO6g1Wg4Z2UTRktQipceo2dxA0mQHNwCR1mzu4Dpkh4bVB6kWeCpHmBX4H+tSLVEjSot4dUB/xIKZqcTpMQS725EyBUyf1FESp9g4CJHVxAAgUxYk8rikqAhpyz2rPZLFGRwMoKppw/htdNiCr3Fd4xpzzn2skfsBHmmM05iW/4CD1nRJ5Jzwv0vM8gieixIvUhzTdesbGdeJUPAvp+ajjcZDHNtl6JkyPT5HSn0jNYmr7CbQh9jL4Op62qiIh9peRTUFCaUPsdpUNd/AMsetTRxjWjj0mKN/qxp5e4CLdGUKVu+hkX0rR90znycSGASb6KkVQPdiPgM8mRVAa2A/VQjS3N6Xoz2pjUo6XpWKH2vN4mZSiH/N32azIWLjo9jLZipL5SpoQDyq6Sf6Jkjdo10rqgKsUXYJoLiRZNXUASy0BUbKCL+h4LCDSimYb0Ro+IRjriJigoy05Xyb70QTcQVbx9AhBlr3nTQB5VhRZLo5x5WBI/BIZP4pLCcbjLJHM3oWGAcF5XW5Us+WrpQfgOwYuOhd4dCJCXYP9YCJCWypPixITEQl6pz29gJiISi5AgD0wvYhcffZcERsRLArWYyciQefQ0wmIlQjGg7HsRYTu0utRYicCnkrPEzHijkvujvX9VqtPzBhyyZCczf0D5w/3VoK/s2Z8jJHoK4UAAAAASUVORK5CYII="
+                        width="30" height="30" style="vertical-align:middle;display:inline-block;image-rendering:auto;"
+                        alt=""></div>
+                <div class="orb-label">Students</div>
+            </div>
+            <div class="icon-orb">
+                <div class="orb-circle slow"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAvVBMVEVHcEyImaZmdX9mdX96ipWImaaquMJndX+quMKquMJmdX9ndX+ImaZmdX+ImaaKmqequMKImaaImaaquMKImaaImaaHmKSWprJmdX+pt8FndX9ndX9ndX+quMLg5+zU3eOfrrlndX+ImaaquMKquMKquMKwvseImaZseoXR2uCKmaOksrxndX+ImaaquMJndX9mdX9qeYTh6O15iJRzgoze5ep/j5uKm6iksr2Rn6mdq7Wtu8W0wcqmtL7X3+XTN+ZMAAAALXRSTlMAUO+CEN/PYJ8QMEDvz89ggJ+vv0BwgDC/5t+fr0SfzyBQv2Bwj8+P35/vr3AySqAXAAACH0lEQVR4Xq3UaXeaQBSAYWQREI0ocUFNq03SdJsZSNJ9+f8/q8XLOeMs0Lm5vN95DnOHi/fC0rwoiluPXDrmTQkZyjlElko+kMQhulQOJE0+cJp0l9yeHb/+QZISeGriV5Ui3eOdRmocTToiHeh7VenSHd6xSznesUs3aMcujdGOXRqnWMeU/Hme489lSv4Ef++mRHWkRHRkH4mOLEE7dOnVL97b0dV5/NwvbVydx36pcHPe/3M6JcRuJD//SInicC4lgnPDeb9UguMA9Uvfvo7coLRUJcNh09BNWv9WJd1hbO0GBc+apDuurxRUuqQ59lcK9ztxyC6hbdUlla3DIouzE02xCtmlcfqGtZmrthdQrECmBHsxYm0rA9oJQ2ocU4K9iBi0NCAhDKmySm8bx1t0DulgSjOb9Br2Ys7aDCgThhQaEjhN1xLSi10kcHQIL8F8VAgtwb2bkKsUBEGcZaG3Kfg9ONqwnSR76vUTJflBkiRlRUiSsrQEacXkiCjSZipPRpHCK1DgV4uWjg/n56fLFTjyT4uSwgXTghfCStdTZmkEgLN0goUwegDAXaqZtateIDsF+61/CBXJ7oQdQtwIou0Ap+uD7E44E0rby9PVzH3SmVCLL+f0xQot/gfVz8GnSeufdkLUutO/ZoEQs3dPT+eH5sqh1xGz53W2tH/4awQkdwBfNOrYaHyKNGcvL1LnQ2hoiH60wYY98PX/Bc2knlqmRorDAAAAAElFTkSuQmCC"
+                        width="30" height="30" style="vertical-align:middle;display:inline-block;image-rendering:auto;"
+                        alt=""></div>
+                <div class="orb-label">Research</div>
+            </div>
+            <div class="icon-orb">
+                <div class="orb-circle rev"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAwFBMVEVHcEw7iMP0kAwiZpn/zE07iMNVrO70kAz6ry//zE30kAz/rDP0kAxVrO70kAwiZpk7iMMzfbUiZplVrO47iMP/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE07iMM7iMP1+PrM1t1FltPF096Rwea2zuBcr+0+jcj0kAxVrO74pyRgse+f0PXul6L/rDP///8iZpnysbn8uDeKxvPf7/zfO1D98vP0+v7/zE2Vy/T1lhLdLkT6ri39wUH3nxwSPdbFAAAAIHRSTlMA34Dv71DfUBAw74DPUN+AJRDPEJ/PgCCPYN+vv59wQB8B+fAAAAHsSURBVHja7dXZdoIwEAZgrPu+1H1rWteIivuuff+3aojawWISwOlpL/yvcjKTjwQENUmizUa9ur2kWm80o5r7RCq1wNaWQK0SccWUymflND/qnzz6cX46W+WS890U+ZK5vqc32etzXig63FW0wBlQrBanClFHDj+VTgXR+fmUUto/dRh/WsJkc1MXyUn2M3UV8Z787iC/EJq6zC9DydDAdULJO87AU+xSyBsU+um8DjwGG4KgQHHDMLxCbGn8GzIegwwBNBwtJyzL0RDm7BU1tNhMLtksoN9esUPhlBXaTSzZgWKvAJQKc4dSC7Qwu9az8Xi2NkdwZXsFIEqZFIlZoaG5+9nqwLKamWdgd0NcASgW0V6oFRqZ3YdLzP4RmxRWAKIvWuIGWrLdr67tK3aGJZsUVwBKaPQGul4WLswmxRWAqB0aQ/sYIFEFH0I7GtrNRnv8aD9IrFcE66XF/Izgf9hcByC0jz/a39ET+muo037n+WARj9odBdTrwiL5qNuTQh1oVY06UqjtHGrLoB60qkfYEP7R8G82j/PHj/WDfL793qCgj9xP63ZNS9DmC14cIkxL6kDOko/IJbVDfKaTJbK0wJEFILEEjgLSiEICRw69EZWkdkiGQRmiSr9P1BALQYhmJv+4k9f+Yb4AyFWW7aIiG90AAAAASUVORK5CYII="
+                        width="30" height="30" style="vertical-align:middle;display:inline-block;image-rendering:auto;"
+                        alt=""></div>
+                <div class="orb-label">AI Engine</div>
+            </div>
+            <div class="icon-orb">
+                <div class="orb-circle slow"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAkFBMVEVHcEz/2YPM1t3M1t3/2YP/2YP/2YP/2YP/2YP/2YP/2YP/2YP/2YP/2YP/2YPM1t3/2YOZqrX/2YOZqrX/2YPM1t3M1t3M1t3M1t3y2Jr/2YP/zE3/0WH/0mWZqrWmtb+crbjM1t3/02jJ09uvvce2w8y/y9P82YnP1tfZ18fi17by2Jrp2Krp0Iz8zVbyz3G41/M4AAAAGnRSTlMAgBCAQN8Qv2DvIM8wn49gcFCv31C/76/PQB1YA+sAAAG0SURBVHja7dXHcoMwEIDhFaaJ5l6y4N7S8/5vlxCPByeSYHdzyGQm/wku3wgVBO0lExV9VgwyEBcOUrwpKBIRk+RoFPl8R2m0lYfM4aToSLMG5Wt0F9OdGFsrZI58TJnGriYUJwywM50QoBESiggLhkayaUppUCAckFnMmiH5LIVILuHsRfm35XQol62ZWdoKISMytCvLJd60LMudCCo/qprXqn4XQrXUOGJoeZUaZymCsGqk5pEIabvUONRjG6FNahzyYVNok2wOqlYoQ0NyOJhBa4FDqrh/tgFapYr9YwvNu6iGzHskhI4UDYqhs4ACpdCdT4EyIFR0Qwokd7YJRUAr64B0AsSKdmgA1ELdBqVAL26DfGAUuKEIOCk3FLOgxAlp4BW4oBETyl2QYkLKBflMaOKAzndMyDeg89Pz48P9dtuTQ69vLzVxjQeFq7rN+nA87a+CCPIuhBH303o2Yn86HtYesLIRm1Ud8DKIOgnUM4lLGw+YfQOaFewJIXMTMKH/ffT7+2gM3IYra0PgS2OTGQ9B1GL7pQVI8+a3ztwDef3ZlZn14Ud5/WnNTPse/LXeAV0z5uJQC4srAAAAAElFTkSuQmCC"
+                        width="30" height="30" style="vertical-align:middle;display:inline-block;image-rendering:auto;"
+                        alt=""></div>
+                <div class="orb-label">Innovation</div>
+            </div>
+            <div class="icon-orb">
+                <div class="orb-circle"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAV1BMVEVHcEzR09TR09TR09TR09TR09TR09S+GTG+GTG+GTG+GTHm5+jm5+jm5+jm5+jm5+i+GTG+GTG+GTHm5+jm5+i+GTG+GTHm5+igBB6gBB6gBB7BaU+quMK5D24TAAAAGnRSTlMAUN//EJ+AQP9wgID/n6+/v8/fEECfr89Q30P72GgAAAEASURBVHgB7NNFmsMwEEThkTpgdjim+19zQNMG6atNhelfvkUZ9RUwVsQasgFGHEM0zIpjqQbMRPHt/KFrPZqai2PYhh/NGr6hIbJhC5EF07BlpJZ8e/ChOFIxaMnYkrFhaaZSol11KM9UDloxtmJsWJmpkmjIKlIroiHrSK1B24xtMzYsGhDtqkPZALVtn7ZeA3bZYEe1xx+Ko0FMNl8SDRKiXXFoHw32oB36dvAbPrOqJNoVh47Z4Mg2TzbBNk80QbRrDFV1c5a60p3mbP9LdXO22g01F+CG2gt49aHmAt5nqFNNQ7TP0GfoGY/I56x9hj5n7WfUaNZQraFFxaYfANlMIeHgM3KJAAAAAElFTkSuQmCC"
+                        width="30" height="30" style="vertical-align:middle;display:inline-block;image-rendering:auto;"
+                        alt=""></div>
+                <div class="orb-label">Industry</div>
+            </div>
+            <div class="icon-orb">
+                <div class="orb-circle rev"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAb1BMVEVHcEzh6O3h6O3h6O3h6O3h6O3h6O3M1t3h6O3dLkTOwcrSl6TbQ1fNzNPeRVnXbX3Roq3ZWGrgrrjh3OLX3+XR2+HgusPcOU7fi5nh0djVgpHgoq7g5+zdOk/fdIPeaHnQ2eDYY3TeXW7QrLfN196Tx1eoAAAAB3RSTlMAYO8QIM+/iPzB7wAAAhBJREFUeF7N2NluwjAUBFBCIV6yb+w7/f9vrEzs+CaXWnYuD8wbVXQyUuuh8uJbE8V8ZuIIMKs1J2S9GpwlJ2VppPl9mqbv1DuRAk5tx3QUwHScn8tUiLxWUvSCYuXcGAuFSvGKkuIXpMiWhUNpD+UKVs6Pgrpw6CB0RhALhrKtgRoNLeZAoFDKKRAolJAgUIiRIGkL0aDCFiJBe2HypEEX41QMQoGBhTZKmQ9djfPgJGhjC9Ggh3Gumpl5RGwhyVRmQ0OhgpGgpy1Eg1JbiAQlxtlKAgQLHRgBgoUyEgQLkaCDLUSCsi0q5IbqVIi0RBAcWC+o1is6geDiv4WmaXLd/8jH2Rkn5yBjCD+Ppf0Z/dwJNfp5JF1QIQzhQljCA8udeyTFKMmwBgUYWObxWyvERNKQtIW8ICmmOfbQ3RbygirxToJ7tvGA9PNYAi+4cxeEC1UJlODAekElGGQoJZUdWC8IDrKScKQXlIBCSNKFfKBssn9Y2koPCMzNOUMVzQs8IDA3OzT2ZmCdEJ6bhg85QmjH3wRB+8l4YOnceEB4brC0404IFao5ktALHHtU/Xu6jVSaz84Zwacbfz15QPC0BnxhYgieVhIETysJAqeVBoHTSoPsYSJCtlAw1I2gvHfSLBxqByjmwz8yJQuGbqfhAiHiSsr1324Q9Nu1yuGRuWQhZv3hax/6RdSnrsa+NH++RJUePREKqAAAAABJRU5ErkJggg=="
+                        width="30" height="30" style="vertical-align:middle;display:inline-block;image-rendering:auto;"
+                        alt=""></div>
+                <div class="orb-label">Analytics</div>
+            </div>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="feat-grid">
+            <div class="feat-card">
+                <div class="feat-icon-wrap"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAwFBMVEVHcEw7iMP0kAwiZpn/zE07iMNVrO70kAz6ry//zE30kAz/rDP0kAxVrO70kAwiZpk7iMMzfbUiZplVrO47iMP/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE07iMM7iMP1+PrM1t1FltPF096Rwea2zuBcr+0+jcj0kAxVrO74pyRgse+f0PXul6L/rDP///8iZpnysbn8uDeKxvPf7/zfO1D98vP0+v7/zE2Vy/T1lhLdLkT6ri39wUH3nxwSPdbFAAAAIHRSTlMA34Dv71DfUBAw74DPUN+AJRDPEJ/PgCCPYN+vv59wQB8B+fAAAAHsSURBVHja7dXZdoIwEAZgrPu+1H1rWteIivuuff+3aojawWISwOlpL/yvcjKTjwQENUmizUa9ur2kWm80o5r7RCq1wNaWQK0SccWUymflND/qnzz6cX46W+WS890U+ZK5vqc32etzXig63FW0wBlQrBanClFHDj+VTgXR+fmUUto/dRh/WsJkc1MXyUn2M3UV8Z787iC/EJq6zC9DydDAdULJO87AU+xSyBsU+um8DjwGG4KgQHHDMLxCbGn8GzIegwwBNBwtJyzL0RDm7BU1tNhMLtksoN9esUPhlBXaTSzZgWKvAJQKc4dSC7Qwu9az8Xi2NkdwZXsFIEqZFIlZoaG5+9nqwLKamWdgd0NcASgW0V6oFRqZ3YdLzP4RmxRWAKIvWuIGWrLdr67tK3aGJZsUVwBKaPQGul4WLswmxRWAqB0aQ/sYIFEFH0I7GtrNRnv8aD9IrFcE66XF/Izgf9hcByC0jz/a39ET+muo037n+WARj9odBdTrwiL5qNuTQh1oVY06UqjtHGrLoB60qkfYEP7R8G82j/PHj/WDfL793qCgj9xP63ZNS9DmC14cIkxL6kDOko/IJbVDfKaTJbK0wJEFILEEjgLSiEICRw69EZWkdkiGQRmiSr9P1BALQYhmJv+4k9f+Yb4AyFWW7aIiG90AAAAASUVORK5CYII="
+                        width="26" height="26" style="vertical-align:middle;display:inline-block;image-rendering:auto;"
+                        alt=""></div>
+                <div class="feat-label">AI-Powered</div>
+                <div class="feat-title">Smart Matchmaking</div>
+                <div class="feat-desc">Pair students with the right supervisors &amp; grants using OpenAI + Qdrant
+                    semantic search for precise alignment.</div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon-wrap"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAARVBMVEVHcEzh6O3h6O3h6O3h6O3h6O3h6O3M1t3X3+XR2+Hh6O1qmk+pwKqfwdzg5+xNnNo7lNndLkRckTvRoq3bQ1fN197Q2eBxOmesAAAAB3RSTlMAYO8QIM+/iPzB7wAAAPZJREFUeF7t2LuOgzAQheFAAuML90ve/1FXY7GMURoyx9IiL3/n5itGcnMeV62onbK6iJhX5YCq1+6UDqr8lSoHVm33YaAzlrYYIO7E25qOpSJANTtvIg1E9GapDhCThrQQGYbZeTJk9ZA9QKSH1gBxIES5QG0/hPoWg9phr4WgXqAegoaoT+iLYshJmUP4sf8cuqHGTyHfYFAz7TUQ5AXyEDRFZQFJMQT8/swg/Nj/HpqXMbTMGDSPezMELQItEDRGAdANnfm0MQT8/gygNMe+oRuyesgeIKOHTIBkQFBCMiDIpKGAVpk00owsiWcffIhKNY1dtB+3F8T/isWgqQAAAABJRU5ErkJggg=="
+                        width="26" height="26" style="vertical-align:middle;display:inline-block;image-rendering:auto;"
+                        alt=""></div>
+                <div class="feat-label">Analytics</div>
+                <div class="feat-title">Research Dashboard</div>
+                <div class="feat-desc">Real-time visualisation of national research trends, grant pipelines, and
+                    supervision metrics.</div>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon-wrap"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAM1BMVEVHcEyImaaImaaImaaImaaImaaImaaImaaImaaImaaImaaImaaImaaImaaImaaImaaImaYYrlkHAAAAEHRSTlMAz0AggDAQn2Dvv9+PUK9wIxOF1QAAAedJREFUeF6l2NuSgyAMBuAQwklQef+n3ZndlYmFCib/pXa+kjZgWhDE7USEFnTZQ6p/yUVhxVx5gpBypn4kRYlDdZDw3gl1mKBzuKRzuKRyeKLQSQdRyPyClTiJfNdSQeCY9u6edZV97QRg2RpUVA74Vl1WOQCR1aZxANqSUOPw26RzgBahs+wOAOweUnMEEI8/YZTjgvYZgJHoRP+NTxfknlfROs6c/rGy9MRQqiyJesemhc12XkyL6ZZv6vQj8ldRDye9N3W6Q1xeOMG2+cnm0sJZGFjRU6cPjmp3752afe/QimOIyDSmHWHcCQvOZn9tG+r9VA0vHWo8JtYy/u164uhG1DkAqHECMqn8O0bg3IrzCqduwHLInfvDgYROa+QWhfNRnMAp/dAg6x8ajTFzx/d9mCtLG6wmDpjOAaxd5g71DkB571juaMbhjTmaAd3dnKlEC5NLNyfE6UOSp714gy72Xl6O8D34PAbacjVQCvvab6cDvsQiEe0OJjkeH7uuvzr98nG8B3NBDwAYgxNC/V5ehHaNw9uo6Bw4Lyh5jcN3yKFy+BEWVQ7QZGhYdcCn4RjDncXEfrASOG2XsEgd8EbgCMZhgaR2AOyouoTwPr50TvAgCt4XtSGIg60PcnGgC0bpP4M/MURwGnDGvWEAAAAASUVORK5CYII="
+                        width="26" height="26" style="vertical-align:middle;display:inline-block;image-rendering:auto;"
+                        alt=""></div>
+                <div class="feat-label">RAG Technology</div>
+                <div class="feat-title">Intelligent Discovery</div>
+                <div class="feat-desc">Context-aware answers &amp; funding alerts powered by Retrieval-Augmented
+                    Generation beyond simple search.</div>
+            </div>
+        </div>
+
+        <!-- WIDE CARD -->
+        <div class="wide-card">
+            <div class="wide-icon"><img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAaVBMVEVHcEz92Ij92Ij92Ij92Ij92Ij92Ij92Ij92Ij92Ij92Ij92Ij92Ij92Ij92Ij92Ii/aVL92IhndX96gYCNjoH00oeyp4Rwe4DhxYbqzIefmoLYv4bOuYWpoIPFs4WDiIGWlIK/aVK7rYQ/6loZAAAAEXRSTlMAgGBQ348QzyDvMECfv3CvgLj/t0oAAAI5SURBVHjaxZjbdoMgEEXVeI0x6YD3a9L//8jWYhYWkCOrD91PvriXHJhhlt4B94woWh+ChL5JLutzRJTdPSfutPLIrw/aeOS5eA6cRCEdErp4YrLwDyK0NBd8OsR3EsXh4QfFnhPXjIxkV08Hm7AH8/Ey8uEseh3wDyK0NGfSzJB16rmTkIHE3RORkcjVc6EDLn8PCMeEA8Ix4YBwTDggEJNrQFXJGG9hTDignn3DYUw4IPZDC2ICAUnR4BxTmmGRHhM+QWMvRMs0usV0oz0zZ5KmrkhyA3e+svG/aUaS3K0d/5dnYRp7k+0eKNQDtFLWdf92NiQpjj0B7ejEq1sw3aalHcG5G79mK5/0ZuDqCQ/RBwlKtTSqupw6OvNJoS4qSQV/UhqRLmItaih4kJnENukm66mME1LpmKDvLKb4TI+u2cZzBGtDA9oka6NvT60tJTPjrmaX2bJv8NKo6kaquEmVgoSkat9JygqERFaGXmbVWmfcmABVzd9JkcJDEUHeYak5FcrSMO3CTMWXaWFjk9qQBEmsbD+mNIooAQey68vZIFpIw7eXCF/farUifoJDqackO/bmEWHPYGC6mkSiXMfVNUxi+zma4XxjE9EZyIT9AExMZyYkMtYYVzR8ICwyMj4b0JCQSDJ8btvXgYEZiPRBC2x/8hdReq7aGnRR+qD9a+MxTkg/kZaB3dJGYEpdB9aFLm3MLXX7H+L6eyMnR3IwsgHQwIZN2CPJw9P55J6doKATFIGa8xe4+dzA9QkE6gAAAABJRU5ErkJggg=="
+                    width="36" height="36" style="vertical-align:middle;display:inline-block;image-rendering:auto;"
+                    alt=""></div>
+            <div>
+                <div class="wide-label">Centralized Funding &amp; Project Hub</div>
+                <div class="wide-title">All Research Opportunities in One Place</div>
+                <div class="wide-desc">Discover grants, scholarships, and consultancy opportunities from local &amp;
+                    international bodies — connecting researchers with the funding they need.</div>
+            </div>
+        </div>
+
+        <!-- EVENT DETAILS -->
+        <div class="event-card">
+            <div class="event-top"></div>
+            <div class="event-inner">
+                <div class="ev">
+                    <div class="ev-lbl"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAkFBMVEVHcEzg5+zdL0XdL0Xg5+zg5+zg5+zdL0XdL0Xg5+zdL0XdL0Xg5+xmdX/Cy9GjrrZufIbY4OWyvMOFkpp1g42rtbzR2d7J0tiUoKi6w8qbp699ipOMmaH1+PrdL0XfPFDjYXLiVWfoh5Tvxs3plKDmeon06+/x0tjy3+P0q7ruucHgSFzsrbbpbYDeN0zroKtu5F22AAAADHRSTlMAYDBQzyC/QIDv3+8TQt+hAAAB30lEQVR4XuSUy2rDQAxFh3hhY3/DlTQPv5P0//+uUQWloMXETttFexbCgjsHaWwcQtOT0YUPOqrhs33z8HwGWhO1VMdnm9B/j6gPWl9bzfgiGi7quQwVh8s6EQ1d23Z1j8+a6DW8SEokSomtGwsTp/GEiIGJEvBmHmCjDRiPiwQAFSBrYw8ZKP9IdFvXm6/HRff1ga+/Laqv9qOXPZGSz4l43E0UAVztw0Y6sdoG5EWH0bNY8gxgYm2UeX/usk0Em4VnGFNUq1GeFsVF85l1yyuUrFMkGHLgrUWRSAaLyH7yf+T5G6L3dutttUIYiMJwBHdgg5NJojEe+v7PWSKdyYXSGpa0N10P8PFr8DA8tL+F/qHo6dgYDmCj86Z8A5pJthwsXc2Hn6GkkC/QSJdLLRB9A3HLpZG65613b7ZC4TJpunn8TqCy7OrWLyg2QqexBIHQ7CUIhBYJwiA90IhCGgRCWYJQaJQnB4JUJwYhDQogVINAaJcgEIoaBEKTBIFQDQIhDQIh1iAMCl6CQKgGYVANAqFNgzBoJgkCoaRBIMQS1A7lwxmFlaB2aPjQz7K+q/fQAukis6uuY07ht/7Y7DOONd0zUGdM/4TTG2Neb9x5v0yR4Ka+OGWdRRjbFeMTPo945fSVpjYAAAAASUVORK5CYII="
+                            width="13" height="13"
+                            style="vertical-align:middle;display:inline-block;image-rendering:auto;" alt="">&nbsp;Date
+                        &amp; Day</div>
+                    <div class="ev-val">15 June 2026</div>
+                    <div class="ev-sub">Monday</div>
+                </div>
+                <div class="ev">
+                    <div class="ev-lbl"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAwFBMVEVHcEzdLkTYL0XdLkT/yErWMUXdLkT/yEv/zE3/zE3dLkTdLkTdLkT/zE3/yUreL0T/vED/zE3cLkTdLkTVMEXUMUbdLkT/rDPfMkP/xkj/xkj/zE3/rDP/rDP4x03/zE3/zE3/rDNya1mRR1G8nlNYWVvm5+jdLkT/rDPl297kub/lyc7gcH/fXG3/zE3eOk7ii5bwf0TjoqveRVnhf4yUlJXfUWOTgVZYWVtBQELilqDnUD/9pDTjrbVmVFmKSVJf6chjAAAAJnRSTlMAgPO/IBAwMGDvz2BA34Cvlbvfn5EgcOJQUBDPYL9wQJ9Az9+fYO3FoJ8AAAMbSURBVHherdfpcpswFIDRCwa8QbxgO46drWkrsXt39vb936oOkSIpFyLUyfczsc9IVxoYg7aLoCiCCzANO0VZc8npnJ3qOJ+h4B0KGn6+syxYoxsVKlgqczMqWMuOrLM/M2qhgxbq5x3utLuFUtD+GmoHhVK3jR3+D57rb1i+x5jaLyyCGsfth2Mq17K8GilYAMCw2ukPaEXjybRSGgI4VY5r2bSull8lOXBd4cwUBlNTLF3DCDlej+qykDQC5Fi0QT3vs6RC97/dAW2UPXfv6qH7hz9jqrbKs/Vb+fEz9fPhHkHCUaecPaVE9LrfKdJfJiHo+k5xVmumyFauSr8kaMmdDkxlZx2TqhJ5ixPocGcJww8HpDkfpdUcHh8PErWWJO9DGoLz4cyEsydSj6eIVCpGNXa55ADcMscTzpYgSC4W2xvAu3QLAE63dKCHHAxhyS+lrgOnOqXTxw6GsDRmQNkb59piPnqIpCsuzRjAs7iTkyYQeeWQDWpj5qzSZhDJuNQXiDyhNWkIxXxzPQUa8AXFOghfTA9ErliQDsJLmlTtLG4Okb10A3ghczJiAKWUNcVntjWByI6fGx5RbATt0ZB85hyJASQuZQt4Mz4iMyhFl9vih28GEcpC0LYOEh3QtGWoxaBEC6lryxnkfRfkN4MOaGu1UChB+jDk4lMzi7Lg26G5eMyalKBHm8eglRn0JF5uPMpKjaCMQRagG/n0XyPy8ctoZ+Js0azZkExvUi5GhB+RmdmZ4RfbxHxJOYdcGZpyKDdeUAhKLWp2cPFOvB+VfA6tUpM7JB7YeEnH2ODo2YLQlJCkdUJAWVjSO7YLuB6StA6dQ0WeTXmrpJ6JM+FMoLI+Fe3rFpXshNODmmbKT5EqKsmp5LhQV0hlap+qSryVGWp7UN+EKu2ybRKXSJqsc/QjEoXmpAvvCzdv5gx0Dpy9PFN9m3PQdR5FGx3z/BJFlxrnMjr1svmS2USndEu6isra1rhuOP4wKvvRBBoCwDy08VHNpgAOh/Rbixwo82Zhy+ZGy5qzkxrqtsY/dX4BX7a4OjltUPsHJG5YN4aks/0AAAAASUVORK5CYII="
+                            width="13" height="13"
+                            style="vertical-align:middle;display:inline-block;image-rendering:auto;" alt="">&nbsp;Time
+                    </div>
+                    <div class="ev-val">8:00 AM – 3:00 PM</div>
+                    <div class="ev-sub">Full-day session</div>
+                </div>
+                <div class="ev">
+                    <div class="ev-lbl"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAdVBMVEVHcEzdLkTdLkTdLkTdLkTdLkTdLkTdLkTdLkTdLkTYN0yZqrWmk6C7bH3MTWCZqrWZqrWZqrWZqrWZqrWZqrWZqrWZqrWZqrWZqrWZqrWZqrWZqrUpLzMpLzMpLzMpLzNaZWwpLzMpLzM+RkspLzOSoq1vfISBw8GTAAAAJXRSTlMAMIC//2DPIFDv31D///9A/yDfv6+AcDDvj2DPYJ/P//9Q3//vLAM7jgAAAU1JREFUeAHs1TUCxSAQBNCBHYjL/S/7rYnbFFv91yfAKs6FaPyxGKBLmTM5QVMYV6yAoKy4UZXCs7gr4aGSB8qH8al4oHoWJ+Mh0wNEPUyZJzJuCzwVcFfkqaiGWg83L/j/6P8jp/QLBenQIkrTCmOk9B9s+qjVh7/POhIWpLCyNanmTJ0ga9qu50/ftQ10w/gupT5MLIaBIAxvB1or2O85ybn/Es+IgyEf3P8VMCDNsC4BBHUu3hngLkZE5UQjkoKSEVlB2YiioGJEr6DeiMBmJIOCBkPgjOTjvz7GJM2IyZoRUzQjpteMmKAZMZ2uEaQZQVHXiElsRvL15mtUYTOSoPaZQUcEUvtQVPtMUvtMUWnM6K/RuKD2IZUGTe6TCTrb2ah5WevmvtV1mUHMftTX6X7W17Hbf121ue/aXDToeWBQe5ocO/zs5s/P/gEcTCzGH83q4QAAAABJRU5ErkJggg=="
+                            width="13" height="13"
+                            style="vertical-align:middle;display:inline-block;image-rendering:auto;" alt="">&nbsp;Venue
+                    </div>
+                    <div class="ev-val">N28a, UTM</div>
+                    <div class="ev-sub">Universiti Teknologi Malaysia, Johor Bahru</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BADGE + CTA -->
+        <div class="bottom-row">
+            <div class="event-badge">
+                <div class="badge-star"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAY1BMVEVHcEz/rDP/rDP/rDP/rDP/rDP/rDP/zE3/rDP/rDP/zE3/rDP/rDP/zE3/rDP/zE3/zE3/rDP/zE3/zE3/zE3/rDP/zE3/zE3/rDP/zE3/zE3/rDP/zE3/zE3/zE3/rDP/zE1FTDsPAAAAH3RSTlMAnzDfYM8g7+8Qz69Qj48QIHAwUECA34C/r3BAn79gonqIhQAAAh1JREFUeF7t2FmSozAMBmBhFrOvgYR0MtL9TzkBppPGwiD8NlX9HcBVUv3CMnDGr/p6ATsVY5jIztFEV7AKEbEBiYKIBrBJ8OUGEppeOrAIcCKpraPJAywynARwbKSJrmBbjBMPDl1ocd0+KcdZDPvqYqBv+tEB5+Eihx1tSmsDT4GPixJ2aGLMZCr8x4cdxLBg9vhNgV1KJl2zWM8Owl3d10fpwjwnwrcQdrXFu1FjB0yDH5FgQiYXe6wXgWBmbVOb4A8ZHGhpUlgGdiEb3LnjNdhjzcJtcSei1DawC9ngVinpFjZ84UoMrkpcU+DIx7US3Cg0+OAi6n003YIEzkmCG26KvRzkcg93+GUkK6n08Uh4WGLShCiT7ZWYZ3hCXCpLSTGeFTa8xChGFyGYenSzP6ByMTAsyBKh2s4h75M4mXwyhGLv6/ysouP0qoMS/SYCqSCzl6TglGhz6rIAHASswQm4MVvlgVCrKa3Yzf8hrutJRPed2qSVVfQysu2ITbpwc2f72lsDQgXbk3q3i3Zg+41yuh5rmqW2S7sEoT+0qCwLUg4i3fjZbVvjJbIQVVVo+im9V2yJzGRvUVPKwi2J9ZU4tmhHcOxCjDbCLYz1dTAra81w9yDTPT59Goqa75EKpKoHLTp2cbKLUNQpbXscy9Fs3Nz+czjhSZO72w8EHqcW1hIWa1mTNJhu7JsmatLo+tuHf/wd8evo//cX/LW43j8JzqsAAAAASUVORK5CYII="
+                        width="30" height="30" style="vertical-align:middle;display:inline-block;image-rendering:auto;"
+                        alt=""></div>
+                <div class="badge-event-word">EVENT</div>
+                <div class="badge-date-mini">15 Jun 2026<br>N28a · UTM JB</div>
+                <div class="badge-dot-row">
+                    <div class="badge-dot bd1"></div>
+                    <div class="badge-dot bd2"></div>
+                    <div class="badge-dot bd3"></div>
+                </div>
+            </div>
+            <div>
+                <div class="cta-h">Start Your Research Journey Today</div>
+                <p class="cta-p">Join us at the NexScholar launch event — explore AI-powered supervisor matching,
+                    funding discovery, and real-time research analytics. No sign-up needed for a preview.</p>
+                <div class="scan-tag"><span class="scan-dot"></span>&nbsp;nexscholar.com · Free to join</div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-l">© 2025 <span>NexScholar</span> Sdn. Bhd.<span class="sep">·</span>202501003772
+                (1605185-U)<span class="sep">·</span>A UTM Spin-Off</div>
+            
+        </div>
+    </div>
+</body>
+
+</html>
